@@ -52,6 +52,7 @@ void	parsing_light(t_minirt *minirt, char *str, int i)
 	if (check_line(str, i, ALLOW_CHAR_SET) == FALSE)
 		ft_error(ERROR_INVALID_CHAR);
 	light = (t_light *)ft_calloc_assert(1, sizeof(t_light));
+	light->id = L;
 	parsing_position(&light->origin, str, &i);
 	light->bright = ft_atof_idx(str, &i);
 	if (check_range(light->bright, 0, 1) == FALSE)

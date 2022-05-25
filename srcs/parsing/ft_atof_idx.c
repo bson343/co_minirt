@@ -1,69 +1,85 @@
 #include "libft.h"
 
-static int	atoi_endptr(char *str, char **endptr)
+static int	ft_isspace(char chr)
 {
-	int			sign;
-	long long	result;
+	if (chr == '\t')
+		return (1);
+	if (chr == '\n')
+		return (1);
+	if (chr == '\v')
+		return (1);
+	if (chr == '\f')
+		return (1);
+	if (chr == '\r')
+		return (1);
+	if (chr == ' ')
+		return (1);
+	return (0);
+}
+
+static double	get_int_idx(const char *str_ptr, int *i)
+{
+	double		res;
+	int			idx;
+
+	idx = *i;
+	res = 0.0;
+	while (str_ptr[idx] && str_ptr[idx] >= '0' && str_ptr[idx] <= '9')
+	{
+		res *= 10.0;
+		res += str_ptr[idx] - '0';
+		++idx;
+	}
+	*i = idx;
+	return (res);
+}
+
+static double	get_dec_idx(const char *str_ptr, int *i)
+{
+	double		res;
+	int			idx;
+	int			ret_idx;
+
+	idx = *i;
+	res = 0.0;
+	while (str_ptr[idx] && str_ptr[idx] >= '0' && str_ptr[idx] <= '9')
+		++idx;
+	ret_idx = idx;
+	--idx;
+	while (idx != *i)
+	{
+		res /= 10.0;
+		res += str_ptr[idx] - '0';
+		--idx;
+	}
+	res /= 10.0;
+	res += str_ptr[idx] - '0';
+	res /= 10.0;
+	*i = ret_idx;
+	return (res);
+}
+
+double	ft_atof_idx(const char *str, int *i)
+{
+	double	res;
+	int		sign;
 
 	sign = 1;
-	result = 0;
-	while ((*str >= '\t' && *str <= '\r') || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
+	res = 0.0;
+	while (str[*i] && ft_isspace(str[*i]))
+		++(*i);
+	if (str[*i] == '-')
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		sign = sign * -1;
+		++(*i);
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result *= 10;
-		result += *str - '0';
-		if ((result > 2147483647 && sign == 1) || (result > 2147483648 && sign == -1))
-			return (-666);
-		str++;
-	}
-	*endptr = str;
-	return ((int)(result * sign));
-}
-
-static int	ft_pow(int n, int up)
-{
-	int cnt;
-	int	result;
-
-	cnt = 1;
-	if (up == 0)
-		return (1);
-	result = n;
-	while (cnt < up)
-	{
-		result *= n;
-		++cnt;
-	}
-	return (result);
-}
-
-double	ft_atof_idx(char *nptr, int *return_idx)
-{
-	double		integer;
-	double		decimal;
-	char		*iter;
-	char		*temp;
-
-	iter = nptr + *return_idx;
-	decimal = 0.0;
-	integer = atoi_endptr(iter, &temp);
-	iter = temp;
-	if (*iter == '.')
-		++iter;
-	if (!(*iter >= '0' && *iter <= '9'))
-	{
-		*return_idx = temp - nptr;
-		return (integer);
-	}
-	decimal = atoi_endptr(iter, &temp);
-	*return_idx = temp - nptr;
-	return (integer + decimal / ft_pow(10, temp - iter));
+	else if (str[*i] == '+')
+		++(*i);
+	res = get_int_idx(str, i);
+	if (str[*i] == '\0' || str[*i] != '.')
+		return (res * sign);
+	++(*i);
+	res += get_dec_idx(str, i);
+	return (res * sign);
 }
 

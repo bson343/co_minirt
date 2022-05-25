@@ -12,7 +12,7 @@ t_bool	is_empty(char *line);
 t_bool	is_next_valid(char *str, int *i);
 t_bool	check_line(char *line, int i, char *set);
 t_bool	check_range(double n, double min, double max);
-double	ft_atof_idx(char *nptr, int *return_idx);
+double	ft_atof_idx(const char *str, int *i);
 void	parser(char *filename, t_minirt *minirt);
 void	parsing_color(t_vec3 *color, char *str, int *i);
 void	parsing_position(t_vec3 *pos, char *str, int *i);

@@ -31,17 +31,17 @@ void	parsing_color(t_vec3 *color, char *str, int *i)
 
 	idx = *i;
 	color->e[0] = ft_atof_idx(str, &idx);
-	if (check_range(color->e[0], 0, 255) == FALSE)
+	if (check_range(color->e[0], 0, 255.99) == FALSE)
 		ft_error(ERROR_OUT_OF_RANGE);
 	if (is_next_valid(str, &idx) == FALSE)
 		ft_error(ERROR_RGB_FORMAT);
 	color->e[1] = ft_atof_idx(str, &idx);
-	if (check_range(color->e[1], 0, 255) == FALSE)
+	if (check_range(color->e[1], 0, 255.99) == FALSE)
 		ft_error(ERROR_OUT_OF_RANGE);
 	if (is_next_valid(str, &idx) == FALSE)
 		ft_error(ERROR_RGB_FORMAT);
 	color->e[2] = ft_atof_idx(str, &idx);
-	if (check_range(color->e[2], 0, 255) == FALSE)
+	if (check_range(color->e[2], 0, 255.99) == FALSE)
 		ft_error(ERROR_OUT_OF_RANGE);
 	*color = vec3_div(RGB_MAX, *color);
 	*i = idx;
