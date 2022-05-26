@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/26 15:51:47 by bson              #+#    #+#             */
+/*   Updated: 2022/05/26 15:52:06 by bson             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minirt.h"
 
 t_bool	is_empty(char *line)
@@ -27,7 +39,7 @@ t_bool	check_line(char *line, int i, char *set)
 
 void	parsing_color(t_vec3 *color, char *str, int *i)
 {
-	int idx;
+	int	idx;
 
 	idx = *i;
 	color->e[0] = ft_atof_idx(str, &idx);
