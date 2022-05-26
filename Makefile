@@ -16,8 +16,6 @@ SRC_DIR		= ./srcs/
 OBJ_DIR		= ./objs/
 
 DIR_PARS	=	parsing/
-DIR_OBJS	=	objects/
-DIR_RAND	=	rendring/
 
 SRC_NAME = main \
 			$(DIR_PARS)parser \
@@ -27,6 +25,7 @@ SRC_NAME = main \
 			$(DIR_PARS)parsing_utils2 \
 			$(DIR_PARS)check_range \
 			$(DIR_PARS)ft_atof_idx \
+			$(DIR_PARS)occur_error \
 			init \
 			init2 \
 			init3 \
@@ -42,8 +41,8 @@ SRC_NAME = main \
 			vec3f \
 			vec3f2 \
 			vec3f3 \
-			event_operate \
-			occur_error
+			event_operate
+
 SRCS		=	$(addsuffix .c ,$(addprefix $(SRC_DIR), $(SRC_NAME)))
 OBJ_LIST	=	$(SRC_NAME:.c=.o)
 OBJS		=	$(addsuffix .o ,$(addprefix $(OBJ_DIR), $(OBJ_LIST)))
@@ -55,8 +54,6 @@ endif
 $(OBJ_DIR)%.o	:	$(SRC_DIR)%.c
 	mkdir $(OBJ_DIR) 2> /dev/null || true
 	mkdir $(OBJ_DIR)$(DIR_PARS) 2> /dev/null || true
-	mkdir $(OBJ_DIR)$(DIR_OBJS) 2> /dev/null || true
-	mkdir $(OBJ_DIR)$(DIR_RAND) 2> /dev/null || true
 	$(CC) $(CFLAGS) $(ARCHI) -c $< -o $@ $(INC)
 
 $(NAME): $(OBJS)
