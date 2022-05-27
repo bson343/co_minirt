@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:51:50 by bson              #+#    #+#             */
-/*   Updated: 2022/05/27 13:55:49 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:34:46 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ t_bool	is_next_valid(char *str, int *i)
 		return (FALSE);
 	++idx;
 	++(*i);
-	while (str[idx] == ' ')
-		++idx;
 	if (str[idx] == '-' || str[idx] == '+')
 		++idx;
 	if (str[idx] < '0' || str[idx] > '9')
