@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 12:03:16 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/27 18:55:58 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:02:13 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	reset(t_minirt *rt)
 	rt->cam = 0;
 	ft_lstclear(&(rt->objs), free_objs);
 	ft_lstclear(&(rt->lights), free);
-	//read_file_init(rt->file_name, &(rt->cam), &(rt->objs), &(rt->lights));
 	parser(rt->file_name , rt);
 	render(rt);
 }
