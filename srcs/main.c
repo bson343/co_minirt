@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 10:35:37 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/27 16:47:09 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:07:22 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_minirt	*new_minirt(char *filename)
 	ft_memset(ret, 0, sizeof(t_minirt));
 	image_init(&(ret->image));
 	rt_init(ret, filename);
-	my_minirt(ret);
 	return (ret);
 }
 

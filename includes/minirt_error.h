@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:52:56 by bson              #+#    #+#             */
-/*   Updated: 2022/05/27 14:08:20 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:07:03 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ and symbols can be used after the identifier."
 
 void		ft_error(char *error_detail);
 void		*ft_calloc_assert(size_t count, size_t size);
-t_minirt	*my_minirt(t_minirt *ptr);
 
 #endif
