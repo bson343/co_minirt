@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 12:03:16 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/27 19:18:41 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:35:41 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	reset(t_minirt *rt)
 	ft_lstclear(&(rt->lights), free);
 	rt->unique[UNIQUE_AMBIENT] = 0;
 	rt->unique[UNIQUE_CAMERA] = 0;
-	parser(rt->file_name , rt);
+	parser(rt->file_name, rt);
 	render(rt);
 }
 
