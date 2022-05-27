@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 10:35:37 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/27 14:31:34 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 16:47:09 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 {
 	t_minirt	*rt;
 
-	if (argc < 2)
+	if (argc != 2)
 		ft_error(ERROR_NO_ARG);
 	if (!ft_strnstr(argv[1], ".rt", ft_strlen(argv[1])))
 		ft_error(ERROR_NO_RT_FILE);
@@ -36,10 +36,7 @@ int	main(int argc, char **argv)
 	parser(argv[1], rt);
 	mlx_hook(rt->mlx->win, X_EVENT_KEY_PRESS, 0, key_press, rt);
 	mlx_hook(rt->mlx->win, X_EVENT_RED_BUTTON_PRESS, 0, red_button_press, rt);
-	mlx_loop_hook(rt->mlx->mlx_ptr, render, rt);
-	//ray_trace(rt->image, rt->cam, rt->objs, rt->lights);
-	//render(rt);
+	render(rt);
 	mlx_loop(rt->mlx->mlx_ptr);
-	all_free(rt->image, rt->cam, rt->objs, rt->lights);
 	return (0);
 }
