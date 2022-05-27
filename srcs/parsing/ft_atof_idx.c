@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:50:53 by bson              #+#    #+#             */
-/*   Updated: 2022/05/27 13:25:40 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:52:34 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,14 @@ static double	get_dec_idx(const char *str_ptr, int *i)
 	return (res);
 }
 
+int	check_digit_fail_logic(int c, int *i)
+{
+	if (ft_isdigit(c))
+		return (1);
+	*i = -1;
+	return (0);
+}
+
 double	ft_atof_idx(const char *str, int *i)
 {
 	double	res;
@@ -87,15 +95,14 @@ double	ft_atof_idx(const char *str, int *i)
 	}
 	else if (str[*i] == '+')
 		++(*i);
+	if (!check_digit_fail_logic(str[*i], i))
+		return (-666);
 	res = get_int_idx(str, i);
 	if (str[*i] == '\0' || str[*i] != '.')
 		return (res * sign);
 	++(*i);
-	if (!ft_isdigit(str[*i]))
-	{
-		*i = -1;
+	if (!check_digit_fail_logic(str[*i], i))
 		return (-666);
-	}
 	res += get_dec_idx(str, i);
 	return (res * sign);
 }
