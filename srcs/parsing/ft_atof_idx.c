@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:50:53 by bson              #+#    #+#             */
-/*   Updated: 2022/05/26 15:51:05 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 13:25:40 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,11 @@ double	ft_atof_idx(const char *str, int *i)
 	if (str[*i] == '\0' || str[*i] != '.')
 		return (res * sign);
 	++(*i);
+	if (!ft_isdigit(str[*i]))
+	{
+		*i = -1;
+		return (-666);
+	}
 	res += get_dec_idx(str, i);
 	return (res * sign);
 }

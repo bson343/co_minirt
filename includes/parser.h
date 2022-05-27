@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:53:03 by bson              #+#    #+#             */
-/*   Updated: 2022/05/26 15:53:04 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 13:35:49 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_bool	is_empty(char *line);
 t_bool	is_next_valid(char *str, int *i);
 t_bool	check_line(char *line, int i, char *set);
 t_bool	check_range(double n, double min, double max);
+double	parsing_one_number(char *str, int *i);
 double	ft_atof_idx(const char *str, int *i);
 void	parser(char *filename, t_minirt *minirt);
 void	parsing_color(t_vec3 *color, char *str, int *i);

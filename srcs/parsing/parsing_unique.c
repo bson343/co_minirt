@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:51:44 by bson              #+#    #+#             */
-/*   Updated: 2022/05/26 15:51:45 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 13:37:12 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	parsing_ambient(t_minirt *minirt, char *str, int i)
 		ft_error(ERROR_INVALID_CHAR);
 	ambient = ft_calloc_assert(1, sizeof(t_light));
 	ambient->id = A;
-	ambient->bright = ft_atof_idx(str, &i);
+	ambient->bright = parsing_one_number(str, &i);
 	if (check_range(ambient->bright, 0, 1) == FALSE)
 		ft_error(ERROR_OUT_OF_RANGE);
 	parsing_color(&ambient->rgb, str, &i);
@@ -45,7 +45,7 @@ void	parsing_camera(t_minirt *minirt, char *str, int i)
 	minirt->cam = (t_camera *)ft_calloc_assert(1, sizeof(t_camera));
 	parsing_position(&minirt->cam->point, str, &i);
 	parsing_normal(&minirt->cam->ori, str, &i);
-	minirt->cam->fov = ft_atof_idx(str, &i);
+	minirt->cam->fov = parsing_one_number(str, &i);
 	if (check_range(minirt->cam->fov, 0, 180) == FALSE)
 		ft_error(ERROR_OUT_OF_RANGE);
 	if (is_empty(str + i) == FALSE)
@@ -66,7 +66,7 @@ void	parsing_light(t_minirt *minirt, char *str, int i)
 	light = (t_light *)ft_calloc_assert(1, sizeof(t_light));
 	light->id = L;
 	parsing_position(&light->origin, str, &i);
-	light->bright = ft_atof_idx(str, &i);
+	light->bright = parsing_one_number(str, &i);
 	if (check_range(light->bright, 0, 1) == FALSE)
 		ft_error(ERROR_OUT_OF_RANGE);
 	if (is_empty(str + i) == FALSE)

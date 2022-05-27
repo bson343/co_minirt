@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:51:41 by bson              #+#    #+#             */
-/*   Updated: 2022/05/26 15:51:42 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 13:36:49 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	parsing_sphere(t_minirt *minirt, char *str, int i)
 		ft_error(ERROR_INVALID_CHAR);
 	sphere = (t_sphere *)ft_calloc_assert(1, sizeof(t_sphere));
 	parsing_position(&sphere->origin, str, &i);
-	sphere->r = ft_atof_idx(str, &i) / 2.0f;
+	sphere->r = parsing_one_number(str, &i) / 2.0f;
 	if (sphere->r <= 0)
 		ft_error(ERROR_OUT_OF_RANGE);
 	obj = (t_objs *)ft_calloc_assert(1, sizeof(t_objs));
@@ -75,8 +75,8 @@ void	parsing_cylinder(t_minirt *minirt, char *str, int i)
 	cylinder = (t_cylinder *)ft_calloc_assert(1, sizeof(t_cylinder));
 	parsing_position(&cylinder->origin, str, &i);
 	parsing_normal(&cylinder->n, str, &i);
-	cylinder->r = ft_atof_idx(str, &i) / 2.0f;
-	cylinder->h = ft_atof_idx(str, &i);
+	cylinder->r = parsing_one_number(str, &i) / 2.0f;
+	cylinder->h = parsing_one_number(str, &i);
 	obj = (t_objs *)ft_calloc_assert(1, sizeof(t_objs));
 	obj->shape = cylinder;
 	parsing_color(&obj->rgb, str, &i);
