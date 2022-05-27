@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:51:44 by bson              #+#    #+#             */
-/*   Updated: 2022/05/27 13:37:12 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:10:51 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	parsing_light(t_minirt *minirt, char *str, int i)
 	t_light	*light;
 	t_list	*list_ele;
 
-	if (minirt->unique[UNIQUE_LIGHT])
-		ft_error(ERROR_UNIQUE);
 	if (check_line(str, i, ALLOW_CHAR_SET) == FALSE)
 		ft_error(ERROR_INVALID_CHAR);
 	light = (t_light *)ft_calloc_assert(1, sizeof(t_light));
@@ -75,7 +73,6 @@ void	parsing_light(t_minirt *minirt, char *str, int i)
 		light->rgb = vec3_set(1, 1, 1);
 	if (is_empty(str + i) == FALSE)
 		ft_error(ERROR_WRONG_DATA);
-	minirt->unique[UNIQUE_LIGHT] = 1;
 	list_ele = ft_lstnew(light);
 	if (!list_ele)
 		exit(1);

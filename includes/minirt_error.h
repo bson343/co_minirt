@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:52:56 by bson              #+#    #+#             */
-/*   Updated: 2022/05/27 19:07:03 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:20:20 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define ERROR_INVALID_CHAR		"Only spaces, real numbers, commas, \
 and symbols can be used after the identifier."
 
-# define ERROR_UNIQUE			"Identifiers A, C, and L are unique."
+# define ERROR_UNIQUE			"Identifiers A and C are unique."
 
 # define ERROR_RGB_FORMAT		"Incorrect RGB color formatting"
 # define ERROR_VEC_FORMAT		"Incorrect vector formatting"

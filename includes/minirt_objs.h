@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 12:38:57 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/25 18:12:43 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:10:30 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 typedef enum e_unique
 {
 	UNIQUE_AMBIENT,
-	UNIQUE_CAMERA,
-	UNIQUE_LIGHT
+	UNIQUE_CAMERA
 }	t_unique;
 
 typedef struct s_mlx
@@ -120,7 +119,7 @@ typedef struct s_minirt
 	t_list		*objs;
 	t_list		*lights;
 	char		*file_name;
-	int			unique[3];
+	int			unique[2];
 }	t_minirt;
 
 #endif
