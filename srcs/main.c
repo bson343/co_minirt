@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 10:35:37 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/26 15:49:44 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/27 01:10:59 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 	mlx_hook(rt->mlx->win, X_EVENT_KEY_PRESS, 0, key_press, rt);
 	mlx_hook(rt->mlx->win, X_EVENT_RED_BUTTON_PRESS, 0, red_button_press, rt);
 	mlx_loop_hook(rt->mlx->mlx_ptr, render, rt);
+	//ray_trace(rt->image, rt->cam, rt->objs, rt->lights);
 	mlx_loop(rt->mlx->mlx_ptr);
 	all_free(rt->image, rt->cam, rt->objs, rt->lights);
 	return (0);
