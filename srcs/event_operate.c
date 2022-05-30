@@ -6,7 +6,7 @@
 /*   By: sangjeon <sangjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 12:03:16 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/30 13:46:00 by sangjeon         ###   ########.fr       */
+/*   Updated: 2022/05/30 13:47:12 by sangjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,5 @@ int	render(t_minirt *rt)
 	}
 	mlx_put_image_to_window(rt->mlx->mlx_ptr, rt->mlx->win, \
 	rt->mlx->mlx_image, 0, 0);
-
 	return (0);
 }
