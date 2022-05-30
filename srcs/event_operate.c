@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_operate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: sangjeon <sangjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 12:03:16 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/30 13:26:36 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/30 13:42:39 by sangjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ void	reset(t_minirt *rt)
 	ft_lstclear(&(rt->lights), free);
 	rt->unique[UNIQUE_AMBIENT] = 0;
 	rt->unique[UNIQUE_CAMERA] = 0;
-	system("leaks miniRT");
 	parser(rt->file_name, rt);
-	system("leaks miniRT");
-
 	render(rt);
 }
 
