@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 12:03:16 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/30 13:26:36 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/30 13:38:33 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ void	reset(t_minirt *rt)
 	ft_lstclear(&(rt->lights), free);
 	rt->unique[UNIQUE_AMBIENT] = 0;
 	rt->unique[UNIQUE_CAMERA] = 0;
-	system("leaks miniRT");
 	parser(rt->file_name, rt);
-	system("leaks miniRT");
-
 	render(rt);
 }
 
@@ -69,6 +66,5 @@ int	render(t_minirt *rt)
 	}
 	mlx_put_image_to_window(rt->mlx->mlx_ptr, rt->mlx->win, \
 	rt->mlx->mlx_image, 0, 0);
-
 	return (0);
 }
