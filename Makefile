@@ -2,6 +2,7 @@ CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 ARCHI		= -arch x86_64
 RM			= rm -f
+RMR			= rm -rf
 NAME		= miniRT
 LIB_NAME1	= ft
 LIB_NAME2	= mlx
@@ -48,7 +49,7 @@ OBJ_LIST	=	$(SRC_NAME:.c=.o)
 OBJS		=	$(addsuffix .o ,$(addprefix $(OBJ_DIR), $(OBJ_LIST)))
 
 ifeq ($(DEBUG), 1)
-	CFLAGS += -g -fsanitize=address
+	CFLAGS += -g3
 endif
 
 $(OBJ_DIR)%.o	:	$(SRC_DIR)%.c
@@ -71,12 +72,12 @@ clean:
 	@$(MAKE) -C $(LIB_DIR1) clean
 	@$(MAKE) -C $(LIB_DIR2) clean
 	@$(MAKE) -C $(LIB_DIR3) clean
-	$(RM) $(OBJ_DIR) $(OBJS)
+	$(RMR) $(OBJ_DIR)
 
 fclean: clean
 	@$(MAKE) -C $(LIB_DIR1) fclean
 	@$(MAKE) -C $(LIB_DIR3) fclean
-	$(RM) $(OBJ_DIR) $(NAME)
+	$(RM) $(NAME)
 
 
 re: fclean all

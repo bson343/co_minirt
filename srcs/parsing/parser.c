@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: sangjeon <sangjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:51:38 by bson              #+#    #+#             */
-/*   Updated: 2022/05/26 18:32:57 by bson             ###   ########.fr       */
+/*   Updated: 2022/05/30 12:37:22 by sangjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,18 @@ void	parser(char *filename, t_minirt *minirt)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		ft_error(ERROR_FILE_OPEN);
-	while (TRUE)
+	cnt = get_next_line(fd, &line);
+	while (cnt > 0)
 	{
-		cnt = get_next_line(fd, &line);
-		if (cnt == 0)
-			break ;
-		if (cnt == -1)
-			ft_error(ERROR_FILE_READING);
-		if (is_empty(line))
-		{
-			free(line);
-			continue ;
-		}
-		parsing_line(line, minirt);
+		if (!is_empty(line))
+			parsing_line(line, minirt);
 		free(line);
+		cnt = get_next_line(fd, &line);
 	}
+	if (cnt == 0)
+		free(line);
+	else if (cnt == -1)
+		ft_error(ERROR_FILE_READING);
 	if (close(fd) == -1)
 		ft_error(ERROR_FILE_CLOSE);
 }
