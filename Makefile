@@ -27,6 +27,10 @@ SRC_NAME = main \
 			$(DIR_PARS)check_range \
 			$(DIR_PARS)ft_atof_idx \
 			$(DIR_PARS)occur_error \
+			$(DIR_PARS)view_list \
+			$(DIR_PARS)view_minirt \
+			$(DIR_PARS)view_obj \
+			$(DIR_PARS)view_vec3 \
 			init \
 			init2 \
 			init3 \
