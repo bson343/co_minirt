@@ -6,11 +6,12 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 10:35:37 by sangjeon          #+#    #+#             */
-/*   Updated: 2022/05/30 13:21:27 by bson             ###   ########.fr       */
+/*   Updated: 2022/06/01 22:55:44 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include "obj_viewer.h"
 
 t_minirt	*new_minirt(char *filename)
 {
@@ -33,6 +34,7 @@ int	main(int argc, char **argv)
 		ft_error(ERROR_NO_RT_FILE);
 	rt = new_minirt(argv[1]);
 	parser(argv[1], rt);
+	view_minirt(rt);
 	mlx_hook(rt->mlx->win, X_EVENT_KEY_PRESS, 0, key_press, rt);
 	mlx_hook(rt->mlx->win, X_EVENT_RED_BUTTON_PRESS, 0, red_button_press, rt);
 	render(rt);
