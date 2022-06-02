@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   obj_viewer.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 13:05:33 by bson              #+#    #+#             */
+/*   Updated: 2022/06/02 13:06:01 by bson             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef OBJ_VIEWER_H
 # define OBJ_VIEWER_H
 
 # include <stdio.h>
-#include "minirt_objs.h"
+# include "minirt_objs.h"
 
 void	view_vec3(char *name, t_vec3 v);
 void	view_matrix_44(char *name, float m[4][4]);

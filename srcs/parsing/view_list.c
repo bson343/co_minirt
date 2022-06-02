@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   view_list.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 13:05:17 by bson              #+#    #+#             */
+/*   Updated: 2022/06/02 13:05:47 by bson             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minirt_objs.h"
 #include "obj_viewer.h"
 
@@ -10,11 +22,6 @@ void	draw_small_border(void)
 {
 	printf("-------------------------\n");
 }
-
-// # define SP 1
-// # define PL 2
-// # define CY 3
-// # define DI 4
 
 void	view_list_objs(char *name, t_list *list)
 {
@@ -38,7 +45,6 @@ void	view_list_objs(char *name, t_list *list)
 		draw_small_border();
 		iter = iter->next;
 	}
-
 }
 
 void	view_list_light(char *name, t_list *list)
