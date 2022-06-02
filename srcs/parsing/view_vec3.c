@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:05:02 by bson              #+#    #+#             */
-/*   Updated: 2022/06/02 13:13:00 by bson             ###   ########.fr       */
+/*   Updated: 2022/06/02 14:18:48 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	view_matrix_44(char *name, float m[4][4], int deps)
 	print_deps(deps);
 	printf("%s : \n", name);
 	print_deps(deps + 1);
-	printf("[");
 	i = 0;
 	while (i < 4)
 	{
@@ -63,8 +62,9 @@ void	view_matrix_44(char *name, float m[4][4], int deps)
 				printf(", ");
 			++j;
 		}
-		printf("} ");
+		printf("}\n");
+		print_deps(deps + 1);
 		++i;
 	}
-	printf("]\n");
+	printf("\n");
 }

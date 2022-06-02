@@ -6,7 +6,7 @@
 /*   By: bson <bson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:05:17 by bson              #+#    #+#             */
-/*   Updated: 2022/06/02 13:19:35 by bson             ###   ########.fr       */
+/*   Updated: 2022/06/02 14:14:46 by bson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	view_list_light(char *name, t_list *list)
 	{
 		content = iter->content;
 		view_light(content, 1);
-		view_vec3("rgb", content->rgb, 1);
 		draw_small_border();
 		iter = iter->next;
 	}
